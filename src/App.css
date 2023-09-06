@@ -1,0 +1,251 @@
+
+
+/* OUr CSS  */
+/* Start Glable Rules */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #232323;
+  
+}
+
+.container {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Small */
+
+@media (min-width :768px) {
+  .container {
+      width: 750px;
+  }
+}
+
+
+/* Medium */
+
+@media (min-width :992px) {
+  .container {
+      width: 970px;
+  }
+}
+
+
+/* Larg */
+
+@media (min-width :1200px) {
+  .container {
+      width: 1170px;
+  }
+}
+
+
+/* End Global Rules */
+
+.right {
+  position: relative;
+  animation: moveRight 1s ease-in-out infinite ;
+
+}
+
+@keyframes moveRight {
+  0% { left: 0; }
+  50% { left: 3px; }
+  100% { left: 0px; }
+}
+
+.heading{
+  text-align: center;
+  font-size: 1.7rem;
+  color: white;
+  margin:  0 auto;
+  padding: 1.5rem 0.3rem;
+  background-color: transparent;
+  position: relative;
+  width: fit-content;
+}
+.heading::before{
+  content: '';
+  left: 100%;
+  width: 50% ;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  height: 2px;
+  background-color: #e7c66f;
+}
+.heading::after{
+  content: '';
+  right: 100%;
+  width: 50% ;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  height: 2px;
+  background-color: #e7c66f;
+
+}
+@media (max-width :400px) {
+  .heading::after ,.heading::before  {
+      width: 30%;
+  }
+.heading{
+font-size: 1.3rem;
+  }
+}
+
+.mealAmount{
+  margin: 0  ;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid #e7c66f ;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  background-color: #eee;
+}
+.mealAmount p{
+  font-weight: bold;
+  color: #950a1f;
+}
+.mealAmount svg{
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.mealsAmount{
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  top: 11px;
+  right: -8px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.notification{
+  top :141%;
+  flex-wrap: nowrap;
+  width: 250px;
+  align-items: center;
+  
+  left: -6%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+}
+.notification>div{
+  align-items: center;
+  margin: 0.3rem;
+  padding: 0.8rem ;
+  border-bottom: 1px solid #ddd;
+}
+.noti-arrow{
+  top: 0;
+}
+.openNotification{
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.circle{
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  right: -2px;
+  top: 0px;
+}
+
+.popup{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* position: fixed; */
+  background-color: #000000ab;
+  backdrop-filter: blur(2px);
+  z-index: 100000000;
+  top: 0;
+  left: 0;
+}
+.actionbox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  transform: translate(-50%,-50%);
+  width: fit-content;
+  background-color: #232323;
+}
+
+.error {
+  text-align: center;
+  padding: 5rem;
+  color: #e7c66f;
+  font-size: 1rem;
+}
+.error > button {
+padding: 0.2rem 0.8rem ;
+border-radius: 5px;
+background-color: #e7c66f;
+  margin: 1rem;
+  font-weight: 600;
+font-size: 0.8rem;
+color: #000000;
+}
+
+.dropdown-items{
+ 
+}
+  .dropdown-items::-webkit-scrollbar {
+    width: 5px; /* width of the scrollbar */
+    border-radius: 15px;
+    height: fit-content;
+  }
+  
+  .dropdown-items::-webkit-scrollbar-track {
+    background: #fde8b3; /* color of the tracking area */
+    width: 10px;
+  }
+  
+  .dropdown-items::-webkit-scrollbar-thumb {
+    background: #e7c66f; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+  }
+  
+  .dropdown-items::-webkit-scrollbar-thumb:hover {
+    background: #e7c66f; /* color of the scroll thumb when hovering */
+  }
