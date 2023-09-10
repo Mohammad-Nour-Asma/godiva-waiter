@@ -76,8 +76,6 @@ const NewOrdersPage = () => {
     const channel = pusher.subscribe("onGoingOrders");
 
     channel.bind("one-order-start-preparing", (data1) => {
-      console.log(data1);
-
       if (toggleStateRef.current == 2) {
         data1.order[0].newOrder = true;
         setData((prev) => {
@@ -102,37 +100,28 @@ const NewOrdersPage = () => {
     const channel = pusher.subscribe("readyToDeliver");
 
     channel.bind("order-ready-to-deliver", (data1) => {
-      console.log(toggleState);
       if (toggleStateRef.current == 3) {
         data1.order[0].newOrder = true;
-        console.log(data1.order[0]);
+
         setData((prev) => {
           return { data: [data1?.order[0], ...prev.data] };
         });
       } else {
         let filter = false;
-        console.log(dataRef.current.data, data1?.order[0].id);
-        for (let i = 0; i < dataRef.current.data.length; i++) {
-          console.log(dataRef.current.data[i]);
-          console.log(i);
 
+        for (let i = 0; i < dataRef.current.data.length; i++) {
           if (dataRef.current.data[i].id == data1?.order[0].id) {
-            console.log(
-              dataRef.current.data[i].id,
-              data1.order[0].id,
-              "from ready"
-            );
             filter = true;
             break;
           }
         }
-        console.log(filter);
+
         if (filter) {
           setData((prev) => {
             const newArray = dataRef.current.data.filter(
               (item) => item.id !== data1.order[0].id
             );
-            console.log(newArray);
+
             return { data: newArray };
           });
         }
@@ -211,7 +200,7 @@ const NewOrdersPage = () => {
         </h1>
       ) : (
         <div className="flex justify-center items-center">
-          <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6 ">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6 w-full ">
             {data?.data?.map((item) => {
               return (
                 <Order order={[item]} key={item.id} ready={toggleState === 3} />

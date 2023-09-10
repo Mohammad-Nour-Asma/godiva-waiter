@@ -249,3 +249,12 @@ color: #000000;
   .dropdown-items::-webkit-scrollbar-thumb:hover {
     background: #e7c66f; /* color of the scroll thumb when hovering */
   }
+
+  .MuiRating-icon ,.MuiRating-iconEmpty ,.css-1c99szj-MuiRating-icon{
+    color:  #e7c66f !important;
+    margin : 0 0.2rem
+  }
+
+  .MuiInputBase-root ,.MuiOutlinedInput-root ,.MuiInputBase-colorPrimary ,.MuiInputBase-formControl ,.MuiInputBase-multiline ,.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+    border: 1px solid white;
+  }

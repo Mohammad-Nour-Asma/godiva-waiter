@@ -1,0 +1,25 @@
+@keyframes bump {
+    0%{
+        color: rgb(250, 221, 57);
+        transform: scale(1) ;
+    }
+
+    50%{
+        color: gold;
+        transform: scale(1.05) ;
+
+    }
+
+    100%{
+        color: rgb(250, 221, 57);
+        transform: scale(1) ;
+
+    }
+}
+
+.bump{
+    animation: bump 1s infinite   ;
+}
+
+
+    

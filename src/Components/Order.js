@@ -119,14 +119,23 @@ const Order = ({ ready, order }) => {
                   />
                 );
               })}
-              <div
-                style={{
-                  borderTop: "1px solid #eece7b ",
-                }}
-                className="text-white p-3 pt-1 pl-1 w-fit ml-auto"
-              >
-                <span>Total : </span>
-                <span>{item.total} SAR </span>
+              <div className="flex items-center p-3  justify-between">
+                {ready && (
+                  <div>
+                    <button className="text-white rounded bg-green-500 hover:bg-green-700 transition-all py-1 px-4 text-sm">
+                      Ready
+                    </button>
+                  </div>
+                )}
+                <div
+                  style={{
+                    borderTop: "1px solid #eece7b ",
+                  }}
+                  className="text-white  w-fit ml-auto"
+                >
+                  <span>Total : </span>
+                  <span>{item.total} SAR </span>
+                </div>
               </div>
             </div>
           </div>

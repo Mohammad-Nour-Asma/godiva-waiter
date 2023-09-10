@@ -5,13 +5,14 @@ const Timer = ({ estimatedTime, create_at }) => {
 
   // set the timer to its previous state
   useEffect(() => {
-    console.log(create_at);
     const create = new Date(create_at);
     const now = new Date();
 
     const createHour = create.getHours();
     const createMinut = create.getMinutes();
     const createSecond = create.getSeconds();
+
+    const nowDay = now.getDay();
 
     now.setHours(now.getHours() - createHour);
     now.setMinutes(now.getMinutes() - createMinut);
@@ -21,19 +22,21 @@ const Timer = ({ estimatedTime, create_at }) => {
     const diffMinuts = now.getMinutes();
     const diffSecond = now.getSeconds();
 
+    console.log(diffHours, diffMinuts, diffSecond, "Debaug");
     // Estimated Time
     const estimatedArr = estimatedTime.split(":");
     const estimated = new Date();
     estimated.setHours(estimatedArr[0], estimatedArr[1], estimatedArr[2]);
     const day = estimated.getDay();
-    estimated.setSeconds(estimated.getSeconds() - diffSecond);
-    estimated.setMinutes(estimated.getMinutes() - diffMinuts);
-    estimated.setHours(estimated.getHours() - diffHours);
-
+    console.log(nowDay, now.getDay());
+    if (nowDay === now.getDate) {
+      estimated.setSeconds(estimated.getSeconds() - diffSecond);
+      estimated.setMinutes(estimated.getMinutes() - diffMinuts);
+      estimated.setHours(estimated.getHours() - diffHours);
+    }
     if (estimated.getDay() === day) {
       const startFrom = `${estimated.getHours()}:${estimated.getMinutes()}:${estimated.getSeconds()}`;
-      console.log(startFrom, "realTime");
-      console.log(estimatedTime, "estimated");
+
       setTimeLeft(startFrom);
     } else {
       setTimeLeft("00:00:00");

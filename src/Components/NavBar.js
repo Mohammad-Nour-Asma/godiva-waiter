@@ -14,7 +14,7 @@ const NavBar = () => {
   useEffect(() => {
     dispatch(calculateMeals());
   }, [cartItems]);
-  console.log(location.pathname);
+
   return (
     <div className="flex justify-between align-center relative container w-[90%] py-5 px-2 mx-auto">
       <div className="realative flex gap-6 items-center">

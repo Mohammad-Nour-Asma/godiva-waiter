@@ -20,7 +20,7 @@ const MenuItemDetails = ({ show }) => {
   const { data, loading } = useFetch(`/meals/${id}`);
 
   const item = data?.data?.length > 0 ? data.data[0] : {};
-  console.log(item.image);
+
   return (
     <div className="w-full min-h-screen bg-[#232323]">
       <Heading title={item?.name} />
@@ -42,14 +42,14 @@ const MenuItemDetails = ({ show }) => {
             >
               Note
             </h2>
-            <div className="sm:w-[50%] mt-3 mb-5 border rounded-md p-3">
+            <div className="sm:w-[50%] bg-gray-200 mt-3 mb-5 border rounded-md p-3">
               <input
                 onChange={(e) => {
                   setNote(e.target.value);
                 }}
                 value={note}
                 type="text"
-                className="w-[100%]  bg-transparent outline-none text-white"
+                className="w-[100%]  bg-gray-200 outline-none text-black"
               />
             </div>
           </>

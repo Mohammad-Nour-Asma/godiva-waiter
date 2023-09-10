@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BsBell } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
@@ -11,6 +11,25 @@ const Header = () => {
   const [openNotification, setOpenNotification] = useState(false);
   const { readyOrders } = useSelector((state) => state.notification);
   const dispatch = useDispatch();
+  const notificationRef = useRef();
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (
+        notificationRef.current &&
+        !notificationRef.current.contains(e.target)
+      ) {
+        console.log("hellow workd");
+        setOpenNotification(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, []);
 
   return (
     <div className="w-full bg-[#343232] p-5 shadow-sm shadow-black">
@@ -88,13 +107,17 @@ const Header = () => {
           className="color-[#565656] relative text-lg bg-[#565656;] flex items-center  w-8  h-8 "
         >
           <BsBell
+            ref={notificationRef}
             className="cursor-pointer"
             style={{
               textAlign: "center",
               margin: "0 auto",
             }}
-            onClick={() => {
+            onClick={(e, reason) => {
               setOpenNotification(!openNotification);
+            }}
+            onClose={(e, reason) => {
+              console.log(e, reason);
             }}
           />
           {readyOrders?.length > 0 && <div className="circle"></div>}
@@ -180,7 +203,7 @@ const Header = () => {
             {readyOrders?.length > 0 ? (
               <div className="px-4 pb-4">
                 <button
-                  onClick={() => {
+                  onClick={(e) => {
                     setOpenNotification(false);
                     dispatch(clearNotifications());
                   }}

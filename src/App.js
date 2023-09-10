@@ -12,6 +12,8 @@ import Cart from "./Pages/Cart";
 import Tables from "./Pages/Tables";
 import { Error } from "./Pages/Error";
 import { ErrorBoundary } from "react-error-boundary";
+import { Rating } from "react-simple-star-rating";
+import NourRating from "./Components/NourRating";
 
 function App() {
   const location = useLocation();
@@ -50,7 +52,6 @@ function App() {
 
             <Route path="/orderDetails" Component={OrderDetails}></Route>
           </Routes>
-         
         </div>
       </ErrorBoundary>
     </>

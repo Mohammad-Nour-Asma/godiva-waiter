@@ -14,6 +14,7 @@ const Table = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
   const emptyTable = () => {
     setIsLoading(true);
     request({ url: `/close-table/${id}`, method: "PATCH" })
@@ -28,6 +29,7 @@ const Table = () => {
         showBoundary(err);
       });
   };
+
   return (
     <>
       {open && (

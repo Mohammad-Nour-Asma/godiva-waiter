@@ -18,7 +18,7 @@ body {
     fill: transparent;
     stroke: #f6c566;
     stroke-width: 2;
-    animation: drawDiamond 2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+    animation: drawDiamond 0.1s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
 
 .text {
@@ -29,9 +29,9 @@ body {
     stroke-width: 2;
     stroke-dasharray: 160;
     stroke-dashoffset: 160;
-    animation: drawText 0.5s cubic-bezier(0.42, 0, 0.58, 1) forwards ,
-               revealText 0.5s cubic-bezier(0.42, 0, 0.58, 1) 0.5s forwards ,
-               colorizeText 0.5s cubic-bezier(0.42, 0, 0.58, 1) 0.5s forwards ;
+    animation: drawText 0.2s cubic-bezier(0.42, 0, 0.58, 1) forwards ,
+               revealText 0.2s cubic-bezier(0.42, 0, 0.58, 1) 0.5s forwards ,
+               colorizeText 0.2s cubic-bezier(0.42, 0, 0.58, 1) 0.5s forwards ;
     transform-origin: center;
 }
 
